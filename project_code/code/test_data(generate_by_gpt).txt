@@ -1,0 +1,28 @@
+INSERT INTO planet (name, size, population) VALUES ('Earth', 51010, 8000);
+INSERT INTO planet (name, size, population) VALUES ('Mars', 14480, 0);
+
+INSERT INTO spacestation (name, location_type, planet_id, orbiting_planet_id) VALUES ('ISS', 'orbit', 1, 1);
+INSERT INTO spacestation (name, location_type, planet_id, orbiting_planet_id) VALUES ('RedStation', 'orbit', 2, 2);
+
+INSERT INTO spaceport (name, capacity_limit, fee_per_seat, planet_id, station_id) VALUES ('EarthPort', 200, 300, 1, NULL);
+INSERT INTO spaceport (name, capacity_limit, fee_per_seat, planet_id, station_id) VALUES ('MarsPort', 150, 400, 2, NULL);
+INSERT INTO spaceport (name, capacity_limit, fee_per_seat, planet_id, station_id) VALUES ('OrbitalDock1', 100, 500, NULL, 1);
+INSERT INTO spaceport (name, capacity_limit, fee_per_seat, planet_id, station_id) VALUES ('RedDock', 80, 450, NULL, 2);
+
+INSERT INTO route (origin_spaceport_id, destination_spaceport_id, distance) VALUES (1, 2, 100000);
+INSERT INTO route (origin_spaceport_id, destination_spaceport_id, distance) VALUES (1, 3, 60000);
+INSERT INTO route (origin_spaceport_id, destination_spaceport_id, distance) VALUES (3, 4, 80000);
+INSERT INTO route (origin_spaceport_id, destination_spaceport_id, distance) VALUES (2, 4, 90000);
+
+INSERT INTO spacecraft_type (type_name, capacity, `range`) VALUES ('Falcon9', 100, 150000);
+INSERT INTO spacecraft_type (type_name, capacity, `range`) VALUES ('Starliner', 80, 100000);
+
+INSERT INTO flight (flight_number, route_id, craft_type_id, departure_time, flight_time) VALUES ('F101', 1, 1, '08:00:00', 2.0);
+INSERT INTO flight (flight_number, route_id, craft_type_id, departure_time, flight_time) VALUES ('F102', 2, 2, '10:00:00', 1.0);
+INSERT INTO flight (flight_number, route_id, craft_type_id, departure_time, flight_time) VALUES ('F103', 3, 2, '12:00:00', 2.0);
+INSERT INTO flight (flight_number, route_id, craft_type_id, departure_time, flight_time) VALUES ('F104', 4, 1, '13:00:00', 2.5);
+
+INSERT INTO flight_schedule (flight_number, day_of_week) VALUES ('F101', 'Monday');
+INSERT INTO flight_schedule (flight_number, day_of_week) VALUES ('F102', 'Monday');
+INSERT INTO flight_schedule (flight_number, day_of_week) VALUES ('F103', 'Monday');
+INSERT INTO flight_schedule (flight_number, day_of_week) VALUES ('F104', 'Monday');
